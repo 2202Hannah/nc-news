@@ -1,8 +1,7 @@
 import ArticleCard from "./ArticleCard";
 import "./styles.css";
 
-const ArticleCards = ({ currentArticles }) => {
-  console.log(currentArticles);
+const ArticleList = ({ currentArticles }) => {
   return currentArticles.map(article => {
     return (
       <div key={article.article_id} className="gridItem">
@@ -17,4 +16,4 @@ const ArticleCards = ({ currentArticles }) => {
   });
 };
 
-export default ArticleCards;
+export default ArticleList;

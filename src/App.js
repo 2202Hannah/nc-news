@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -15,7 +14,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route
-              path="/articles"
+              path="/"
               element={
                 <Articles
                   currentArticles={currentArticles}

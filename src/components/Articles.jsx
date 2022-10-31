@@ -1,4 +1,4 @@
-import ArticleCards from "./ArticleCards";
+import ArticleCards from "./ArticleList";
 import { useEffect } from "react";
 import { fetchArticles } from "../utils";
 
