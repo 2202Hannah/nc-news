@@ -1,0 +1,54 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #f5d9d7;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header > a {
+  text-decoration: none;
+}
+
+.title {
+  color: black;
+  font-size: 48px;
+  font-weight: 200;
+}
+/* 
+.container {
+  display: flex;
+  justify-content: center;
+} */
+
+/* .gridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+} */
+
+.articleCard {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #faf9f6;
+  padding: 10px;
+  border: 2px solid #222;
+  box-shadow: 2px 5px 5px #aaaaaa;
+  border-radius: 5px;
+  max-width: 800px;
+  cursor: pointer;
+}
+
+.articlePreview {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 7.6em;
+  line-height: 1.8em;
+}
