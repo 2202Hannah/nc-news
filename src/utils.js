@@ -21,3 +21,11 @@ export const fetchTopics = () => {
     return res.data.topics;
   });
 };
+
+export const fetchArticlesById = article_id => {
+  console.log(article_id);
+  return myApi.get(`/articles/${article_id}`).then(res => {
+    console.log(res.data);
+    return res.data.article;
+  });
+};

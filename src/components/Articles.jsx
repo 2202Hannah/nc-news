@@ -5,8 +5,11 @@ import { fetchArticles } from "../utils";
 import "./styles.css";
 
 const Articles = ({ currentArticles, setCurrentArticles }) => {
+  console.log("in here")
+  
   useEffect(() => {
     fetchArticles().then(articleData => {
+      
       setCurrentArticles(articleData);
     });
   }, []);
