@@ -1,5 +1,4 @@
 import ArticleCard from "./ArticleCard";
-import { Link } from "react-router-dom";
 import "./styles.css";
 
 const ArticleList = ({ currentArticles }) => {
