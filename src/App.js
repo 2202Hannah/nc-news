@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Articles from "./components/Articles";
+import Topic from "./components/Topic";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -17,6 +18,15 @@ function App() {
               path="/"
               element={
                 <Articles
+                  currentArticles={currentArticles}
+                  setCurrentArticles={setCurrentArticles}
+                />
+              }
+            />
+            <Route
+              path="/articles/:topic"
+              element={
+                <Topic
                   currentArticles={currentArticles}
                   setCurrentArticles={setCurrentArticles}
                 />
