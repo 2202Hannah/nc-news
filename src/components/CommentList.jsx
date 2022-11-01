@@ -19,7 +19,7 @@ const CommentList = () => {
         <CommentCard
           author={comment.author}
           commentBody={comment.body}
-          createdAt={comment.createdAt}
+          createdAt={comment.created_at}
           commentVotes={comment.votes}
         />
       </div>

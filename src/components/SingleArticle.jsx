@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchArticlesById } from "../utils";
 import { useParams } from "react-router";
 import CommentList from "./CommentList";
+import Moment from "react-moment";
+import "moment-timezone";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -13,19 +15,23 @@ const SingleArticle = () => {
     });
   }, []);
 
-  console.log(article);
 
   return (
-    <div>
+      <div>
+    <div className="singleArticle">
       <h2>{article.title}</h2>
       <h4>
-        Posted by: {article.author} Posted on: {article.created_at}
-      </h4>
-      <p>Topic: {article.topic}</p>
+        Posted by: {article.author}</h4>
+        <Moment format="DD/MM/YYYY">
+                {article.createdAt}
+            </Moment>
+      {/* <p>Topic: {article.topic}</p>
       <p>
         Votes: {article.votes} Comments: {article.comment_count}
-      </p>
+      </p> */}
       <p>{article.body}</p>
+      </div>
+      <h3> Comments </h3>
       <CommentList />
     </div>
   );

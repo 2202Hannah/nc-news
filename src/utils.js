@@ -30,7 +30,6 @@ export const fetchArticlesById = article_id => {
 
 export const fetchComments = article_id => {
   return myApi.get(`/articles/${article_id}/comments`).then(res => {
-    console.log(res.data);
     return res.data.comments;
   });
 };
