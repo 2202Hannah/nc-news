@@ -28,4 +28,8 @@ export const fetchArticlesById = article_id => {
   });
 };
 
- 
+export const patchArticleVotes = (article_id, number) => {
+  return myApi
+    .patch(`/articles/${article_id}`, { inc_votes: number })
+    .then(res => {});
+};
