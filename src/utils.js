@@ -29,18 +29,7 @@ export const fetchArticlesById = article_id => {
 };
 
 export const patchArticleVotes = (article_id, number) => {
-  console.log(article_id, number, "in utils");
   return myApi
-    .patch(`/articles/${article_id}`, { inc_votes: number})
-    .then(res => {
-      console.log(res);
-    });
-
-  // const article = article.find(a => a.article_id === article_id);
-  // article.votes += number;
-  // return new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     resolve({ article });
-  //   }, 100);
-  // });
+    .patch(`/articles/${article_id}`, { inc_votes: number })
+    .then(res => {});
 };
