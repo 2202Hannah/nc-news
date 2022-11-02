@@ -4,19 +4,22 @@ import { postComment } from "../utils";
 const CommentPoster = ({ setComments, article_id }) => {
   const [newComment, setNewComment] = useState("");
   const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    setComments(currComments => {
-      return [newComment, ...currComments];
-    });
-  }, [setNewComment]);
+  const [newCommentBody, setNewCommentBody] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    postComment(article_id, newComment, username).then(data => {});
+    postComment(article_id, newCommentBody, username).then(
+      ({ author, body, comment_id, created_at, votes }) => {
+        setNewComment({ author, body, comment_id, created_at, votes });
+      }
+    );
 
-    setNewComment("");
+    setComments(currComments => {
+      console.log(currComments);
+      return [newComment, ...currComments];
+    });
+    setNewCommentBody("");
     setUsername("");
   };
 
@@ -34,8 +37,8 @@ const CommentPoster = ({ setComments, article_id }) => {
         Add a new comment:
         <input
           required
-          value={newComment}
-          onChange={event => setNewComment(event.target.value)}
+          value={newCommentBody}
+          onChange={event => setNewCommentBody(event.target.value)}
         />
       </label>
       <button type="submit">Add Comment</button>

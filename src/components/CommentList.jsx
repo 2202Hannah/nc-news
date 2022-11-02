@@ -11,7 +11,7 @@ const CommentList = ({ comments, setComments, article_id }) => {
   }, []);
 
   return comments.map(comment => {
-    console.log(comment);
+    
     return (
       <div key={comment.comment_id} className="comment">
         <CommentCard
