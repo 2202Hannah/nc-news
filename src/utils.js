@@ -38,6 +38,6 @@ export const patchCommentVotes = (comment_id, number) => {
   return myApi
     .patch(`/comments/${comment_id}`, { inc_votes: number })
     .then(res => {
-      console.log(res);
+      return res;
     });
 };
