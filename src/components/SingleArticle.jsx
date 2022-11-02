@@ -3,6 +3,7 @@ import { fetchArticlesById } from "../utils";
 import { useParams } from "react-router";
 import Moment from "react-moment";
 import "moment-timezone";
+import ArticleVoter from "./ArticleVoter";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -18,6 +19,7 @@ const SingleArticle = () => {
     <div>
       <div className="singleArticle">
         <h2>{article.title}</h2>
+        <ArticleVoter article_id={article_id}votes={article.votes}/>
         <h4>Posted by: {article.author}</h4>
         <Moment format="DD/MM/YYYY">{article.createdAt}</Moment>
         <p>{article.body}</p>
