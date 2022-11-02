@@ -45,5 +45,20 @@ export const patchCommentVotes = (comment_id, number) => {
 export const patchArticleVotes = (article_id, number) => {
   return myApi
     .patch(`/articles/${article_id}`, { inc_votes: number })
-    .then(res => {});
+    .then(res => {
+      return res;
+    });
+};
+
+export const postComment = (article_id, body, username) => {
+  console.log(article_id, username, body);
+  return myApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body
+    })
+    .then(res => {
+      console.log(res);
+      return res.data.comment;
+    });
 };

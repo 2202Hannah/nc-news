@@ -6,11 +6,12 @@ import "moment-timezone";
 
 import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
-
+import CommentPoster from "./CommentPoster";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetchArticlesById(article_id).then(data => {
@@ -22,13 +23,14 @@ const SingleArticle = () => {
     <div>
       <div className="singleArticle">
         <h2>{article.title}</h2>
-        <ArticleVoter article_id={article_id}votes={article.votes}/>
+        <ArticleVoter article_id={article_id} votes={article.votes} />
         <h4>Posted by: {article.author}</h4>
         <Moment format="DD/MM/YYYY">{article.createdAt}</Moment>
         <p>{article.body}</p>
       </div>
       <h4>Comments</h4>
-      <CommentList />
+      <CommentPoster setComments={setComments} article_id={article_id} />
+      <CommentList comments={comments} setComments={setComments} article_id={article_id}/>
     </div>
   );
 };
