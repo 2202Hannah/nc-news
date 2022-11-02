@@ -28,7 +28,6 @@ export const fetchArticlesById = article_id => {
   });
 };
 
-
 export const fetchComments = article_id => {
   return myApi.get(`/articles/${article_id}/comments`).then(res => {
     return res.data.comments;
@@ -41,7 +40,8 @@ export const patchCommentVotes = (comment_id, number) => {
     .then(res => {
       return res;
     });
-    
+};
+
 export const patchArticleVotes = (article_id, number) => {
   return myApi
     .patch(`/articles/${article_id}`, { inc_votes: number })
