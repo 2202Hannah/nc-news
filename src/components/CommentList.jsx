@@ -17,6 +17,7 @@ const CommentList = () => {
     return (
       <div key={comment.comment_id} className="comment">
         <CommentCard
+          comment_id={comment.comment_id}
           author={comment.author}
           commentBody={comment.body}
           createdAt={comment.created_at}
