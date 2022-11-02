@@ -2,6 +2,7 @@ import ArticleCard from "./ArticleCard";
 import "./styles.css";
 
 const ArticleList = ({ currentArticles }) => {
+  console.log(currentArticles);
   return currentArticles.map(article => {
     return (
       <div key={article.article_id} className="gridItem">

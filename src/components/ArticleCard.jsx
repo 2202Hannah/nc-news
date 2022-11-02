@@ -1,7 +1,6 @@
 import "./styles.css";
 import { Link } from "react-router-dom";
 
-
 const ArticleCard = ({
   article_id,
   title,
@@ -9,6 +8,7 @@ const ArticleCard = ({
   commentCount,
   votes
 }) => {
+  
   return (
     <div className="articleCard">
       <Link to={`/articles/${article_id}`}>
