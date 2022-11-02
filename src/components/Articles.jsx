@@ -1,4 +1,4 @@
-import ArticleCards from "./ArticleList";
+import ArticleList from "./ArticleList";
 import { useEffect } from "react";
 import { fetchArticles } from "../utils";
 
@@ -11,10 +11,9 @@ const Articles = ({ currentArticles, setCurrentArticles }) => {
     });
   }, []);
 
-
   return (
     <div className="gridContainer">
-      <ArticleCards currentArticles={currentArticles} />
+      <ArticleList currentArticles={currentArticles} />
     </div>
   );
 };

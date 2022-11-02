@@ -15,10 +15,9 @@ const Topics = () => {
 
   return (
     <div className="topics">
-      <p>Filter By:</p>
       {topics.map((topic, index) => {
         return (
-          <Link key={index} to={`/articles/${topic}`} topic={topic}>
+          <Link key={index} to={`/topics/${topic}`} topic={topic}>
             <p className="topicList">{topic}</p>
           </Link>
         );
