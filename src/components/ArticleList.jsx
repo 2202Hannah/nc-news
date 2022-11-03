@@ -1,8 +1,12 @@
 import ArticleCard from "./ArticleCard";
+import SortBy from "./SortBy"
 import "./styles.css";
 
-const ArticleList = ({ currentArticles }) => {
-  return currentArticles.map(article => {
+const ArticleList = ({ currentArticles, setSort }) => {
+  return (
+    <div>
+      <SortBy setSort={setSort}/>
+    {currentArticles.map(article => {
       return (
         <div key={article.article_id} className="gridItem">
           <ArticleCard
@@ -14,7 +18,8 @@ const ArticleList = ({ currentArticles }) => {
           />
         </div>
       );
-    });
-  }
+    })}
+    </div>
+  )}
 
 export default ArticleList;

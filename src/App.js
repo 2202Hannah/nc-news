@@ -9,6 +9,7 @@ import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
+  const [sort, setSort] = useState("");
 
   return (
     <BrowserRouter>
@@ -21,6 +22,8 @@ function App() {
               <Articles
                 currentArticles={currentArticles}
                 setCurrentArticles={setCurrentArticles}
+                sort={sort}
+                setSort={setSort}
               />
             }
           />

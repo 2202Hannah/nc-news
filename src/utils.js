@@ -4,12 +4,9 @@ const myApi = axios.create({
   baseURL: `http://nc-news-hb.herokuapp.com/api`
 });
 
-export const fetchArticles = (topic, sort_by) => {
-  if (sort_by) {
-    return myApi.get(`/articles?sort_by=${sort_by}`);
-  }
-  if (topic) {
-    return myApi.get(`/articles?topic=${topic}`).then(res => {
+export const fetchArticles = (sort) => {
+  if (sort) {
+    return myApi.get(`/articles?sort_by=${sort}`).then(res => {
       return res.data.articles;
     });
   } else {
@@ -17,6 +14,12 @@ export const fetchArticles = (topic, sort_by) => {
       return res.data.articles;
     });
   }
+};
+
+export const fetchArticlesByTopic = (topic) => {
+  return myApi.get(`/articles?topic=${topic}`).then(res => {
+    return res.data.articles;
+  })
 };
 
 export const fetchTopics = () => {

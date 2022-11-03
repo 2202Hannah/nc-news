@@ -4,16 +4,16 @@ import { fetchArticles } from "../utils";
 
 import "./styles.css";
 
-const Articles = ({ currentArticles, setCurrentArticles }) => {
+const Articles = ({ currentArticles, setCurrentArticles, sort, setSort }) => {
   useEffect(() => {
-    fetchArticles().then(articleData => {
+    fetchArticles(sort).then(articleData => {
       setCurrentArticles(articleData);
     });
-  }, []);
+  }, [sort]);
 
   return (
     <div className="gridContainer">
-      <ArticleList currentArticles={currentArticles} />
+      <ArticleList currentArticles={currentArticles} setSort={setSort} />
     </div>
   );
 };

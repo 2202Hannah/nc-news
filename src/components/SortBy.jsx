@@ -1,12 +1,37 @@
-// import { useState } from "react";
+const SortBy = ({ setSort }) => {
+  const handleClick = sortVariable => {
+    setSort(sortVariable);
+  };
 
-// const SortBy = () => {
-// const [selected, setSelected] = useState("")
-// return
-//       <div>
-//           <h4>sort by:</h4>
-//       <button type="button" onClick={setSelected("time")}>time</button>
-//   </div>
-// };
+  return (
+    <div>
+      <h4>sort by:</h4>
+      <button
+        type="button"
+        onClick={() => {
+          handleClick("created_at");
+        }}
+      >
+        created at
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          handleClick("comment_count");
+        }}
+      >
+        comments
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          handleClick("votes");
+        }}
+      >
+        votes
+      </button>
+    </div>
+  );
+};
 
-// export default SortBy;
+export default SortBy;
