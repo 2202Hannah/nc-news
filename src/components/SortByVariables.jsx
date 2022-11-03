@@ -3,19 +3,12 @@ import { useState, useEffect } from "react";
 import "./styles.css";
 import { fetchTopics } from "../utils";
 
-const Topics = () => {
-  const [topics, setTopics] = useState([]);
-
-  useEffect(() => {
-    fetchTopics().then(data => {
-      const topicsArray = data.map(topic => topic.slug);
-      setTopics(topicsArray);
-    });
-  }, []);
+const SortBy = () => {
+  const sortByArray = [created_at, comment_count, votes]
 
   return (
-    <div className="topics">
-      {topics.map((topic, index) => {
+    <div className="sortBy">
+      {sortByArray.map((sorter, index) => {
         return (
           <Link key={index} to={`/topics/${topic}`} topic={topic}>
             <p className="topicList">{topic}</p>
