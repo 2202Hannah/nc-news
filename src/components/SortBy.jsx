@@ -24,14 +24,22 @@ const SortBy = ({ setSort, setOrder }) => {
       >
         created at (oldest first)
       </button>
-      {/* <button
+      <button
         type="button"
         onClick={() => {
-          handleClick("comment_count");
+          handleClick("comment_count", "desc");
         }}
       >
-        comments
-      </button> */}
+        comments (high - low)
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          handleClick("comment_count", "asc");
+        }}
+      >
+        comments (low - high)
+      </button>
       <button
         type="button"
         onClick={() => {
