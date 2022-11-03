@@ -8,20 +8,25 @@ const CommentPoster = ({ setComments, article_id }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
-    postComment(article_id, newCommentBody, username).then(
-      ({ author, body, comment_id, created_at, votes }) => {
-        setNewComment({ author, body, comment_id, created_at, votes });
-      }
-    );
-
+    postComment(article_id, newCommentBody, username).then(data => {
+      console.log(data);
+    });
     setComments(currComments => {
-      console.log(currComments);
       return [newComment, ...currComments];
     });
     setNewCommentBody("");
     setUsername("");
   };
+
+  // useEffect(() => {
+
+  //   postComment(article_id, newCommentBody, username).then(
+  //     (data) => {
+  //       console.log(data);
+  //       //setNewComment({ author, body, comment_id, created_at, votes });
+  //     }
+  //   );
+  // }, []);
 
   return (
     <form onSubmit={handleSubmit}>
