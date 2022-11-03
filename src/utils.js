@@ -61,3 +61,10 @@ export const postComment = (article_id, body, username) => {
       return res.data.comment;
     });
 };
+
+export const fetchUsers = () => {
+  return myApi.get(`/users`).then(res => {
+    console.log(res.data.users);
+    return res.data.users;
+  });
+};

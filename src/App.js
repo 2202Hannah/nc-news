@@ -9,10 +9,12 @@ import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
+  const [user, setUser] = useState("");
+  
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header user={user} setUser={setUser} />
         <Routes>
           <Route
             path="/"
