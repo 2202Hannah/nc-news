@@ -3,10 +3,7 @@ import { useParams } from "react-router";
 import { fetchComments } from "../utils";
 import CommentCard from "./CommentCard";
 
-const CommentList = () => {
-  const { article_id } = useParams();
-  const [comments, setComments] = useState([]);
-
+const CommentList = ({ comments, setComments, article_id }) => {
   useEffect(() => {
     fetchComments(article_id).then(data => {
       setComments(data);
@@ -14,6 +11,7 @@ const CommentList = () => {
   }, []);
 
   return comments.map(comment => {
+    
     return (
       <div key={comment.comment_id} className="comment">
         <CommentCard
