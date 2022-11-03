@@ -4,7 +4,10 @@ const myApi = axios.create({
   baseURL: `http://nc-news-hb.herokuapp.com/api`
 });
 
-export const fetchArticles = topic => {
+export const fetchArticles = (topic, sort_by) => {
+  if (sort_by) {
+    return myApi.get(`/articles?sort_by=${sort_by}`);
+  }
   if (topic) {
     return myApi.get(`/articles?topic=${topic}`).then(res => {
       return res.data.articles;
