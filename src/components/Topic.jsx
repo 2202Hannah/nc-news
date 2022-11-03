@@ -4,16 +4,16 @@ import ArticleList from "./ArticleList";
 import "./styles.css";
 import { fetchArticlesByTopic } from "../utils";
 
-const Topic = ({ currentArticles, setCurrentArticles }) => {
+const Topic = ({ currentArticles, setCurrentArticles, sort, setSort, order, setOrder }) => {
   const { topic } = useParams();
 
   useEffect(() => {
-    fetchArticlesByTopic(topic).then(data => {
+    fetchArticlesByTopic(topic, sort, order).then(data => {
       setCurrentArticles(data);
     });
-  }, [topic]);
+  }, [topic, sort, order]);
 
-  return <ArticleList currentArticles={currentArticles} />;
+  return <ArticleList currentArticles={currentArticles} setSort={setSort} setOrder={setOrder}/>;
 };
 
 export default Topic;

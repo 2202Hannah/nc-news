@@ -10,6 +10,7 @@ import { useState } from "react";
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
   const [sort, setSort] = useState("");
+  const [order, setOrder] = useState("");
 
   return (
     <BrowserRouter>
@@ -24,6 +25,8 @@ function App() {
                 setCurrentArticles={setCurrentArticles}
                 sort={sort}
                 setSort={setSort}
+                order={order}
+                setOrder={setOrder}
               />
             }
           />
@@ -33,6 +36,10 @@ function App() {
               <Topic
                 currentArticles={currentArticles}
                 setCurrentArticles={setCurrentArticles}
+                sort={sort}
+                setSort={setSort}
+                order={order}
+                setOrder={setOrder}
               />
             }
           />

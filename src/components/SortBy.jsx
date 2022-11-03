@@ -1,6 +1,8 @@
-const SortBy = ({ setSort }) => {
-  const handleClick = sortVariable => {
+const SortBy = ({ setSort, setOrder }) => {
+  const handleClick = (sortVariable, orderVariable) => {
+    console.log(sortVariable, orderVariable);
     setSort(sortVariable);
+    setOrder(orderVariable);
   };
 
   return (
@@ -9,26 +11,42 @@ const SortBy = ({ setSort }) => {
       <button
         type="button"
         onClick={() => {
-          handleClick("created_at");
+          handleClick("created_at", "asc");
         }}
       >
-        created at
+        created at (newest first)
       </button>
       <button
+        type="button"
+        onClick={() => {
+          handleClick("created_at", "desc");
+        }}
+      >
+        created at (oldest first)
+      </button>
+      {/* <button
         type="button"
         onClick={() => {
           handleClick("comment_count");
         }}
       >
         comments
+      </button> */}
+      <button
+        type="button"
+        onClick={() => {
+          handleClick("votes", "desc");
+        }}
+      >
+        votes (high to low)
       </button>
       <button
         type="button"
         onClick={() => {
-          handleClick("votes");
+          handleClick("votes", "asc");
         }}
       >
-        votes
+        votes (low to high)
       </button>
     </div>
   );
