@@ -58,7 +58,6 @@ export const postComment = (article_id, body, username) => {
       body: body
     })
     .then(res => {
-      console.log(res.data.comment);
       return res.data.comment;
     });
 };
