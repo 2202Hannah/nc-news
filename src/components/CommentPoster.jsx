@@ -1,34 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { postComment } from "../utils";
+import LoadingSpinner from "./LoadingSpinner";
+import "./styles.css";
 
 const CommentPoster = ({ setComments, article_id }) => {
-  const [newComment, setNewComment] = useState("");
   const [username, setUsername] = useState("");
   const [newCommentBody, setNewCommentBody] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
-    postComment(article_id, newCommentBody, username).then(data => {
-      console.log(data);
-    });
-    setComments(currComments => {
-      return [newComment, ...currComments];
-    });
-    setNewCommentBody("");
-    setUsername("");
+    setErrorMessage("");
+    setIsLoading(true);
+    postComment(article_id, newCommentBody, username)
+      .then(data => {
+        setComments(currComments => {
+          return [data, ...currComments];
+        });
+        setSuccessMessage("Your message has been posted!");
+        setNewCommentBody("");
+        setUsername("");
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErrorMessage("Unable to post comment, please try again");
+        setIsLoading(false);
+        setNewCommentBody("");
+        setUsername("");
+      });
   };
 
-  // useEffect(() => {
-
-  //   postComment(article_id, newCommentBody, username).then(
-  //     (data) => {
-  //       console.log(data);
-  //       //setNewComment({ author, body, comment_id, created_at, votes });
-  //     }
-  //   );
-  // }, []);
-
-  return (
+  const renderComments = (
+    <div className="userlist-container">
     <form onSubmit={handleSubmit}>
       <label>
         Username:
@@ -47,7 +52,15 @@ const CommentPoster = ({ setComments, article_id }) => {
         />
       </label>
       <button type="submit">Add Comment</button>
+      <p className="success">{successMessage}</p>
     </form>
+    </div>
+  );
+  return (
+    <div className="commentPoster">
+      {isLoading ? <LoadingSpinner /> : renderComments}
+      {errorMessage && <div className="error">{errorMessage}</div>}
+    </div>
   );
 };
 
