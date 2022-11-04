@@ -1,12 +1,14 @@
 import "./App.css";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
 import Header from "./components/Header";
 import Articles from "./components/Articles";
 import Topic from "./components/Topic";
 import SingleArticle from "./components/SingleArticle";
+import NotFound from "./components/NotFound";
 import UserLoginContext from "./context/UserLoginContext"
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
@@ -46,10 +48,8 @@ function App() {
               />
             }
           />
-          <Route
-            path="/articles/:article_id"
-            element={<SingleArticle />}
-          />
+          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
