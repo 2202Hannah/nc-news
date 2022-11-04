@@ -1,9 +1,14 @@
-import { useState } from "react";
+
+import { useState, useContext } from "react";
 import { fetchUsers } from "../utils";
 import LoadingSpinner from "./LoadingSpinner";
 import "./styles.css";
 
+import UserLoginContext from "../context/UserLoginContext"
+
 const Login = ({ user, setUser }) => {
+  const value = useContext(UserLoginContext);
+  
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,7 +27,7 @@ const Login = ({ user, setUser }) => {
             setUsername("");
             setIsLoading(false);
             return user;
-          } 
+          }
         });
       })
       .catch(() => {

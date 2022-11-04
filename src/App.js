@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Articles from "./components/Articles";
 import Topic from "./components/Topic";
 import SingleArticle from "./components/SingleArticle";
+import UserLoginContext from "./context/UserLoginContext"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -12,6 +13,7 @@ function App() {
   const [user, setUser] = useState("");
 
   return (
+    <UserLoginContext.Provider value="grumpy19">
     <BrowserRouter>
       <div className="App">
         <Header user={user} setUser={setUser} />
@@ -41,6 +43,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </UserLoginContext.Provider>
   );
 }
 export default App;
