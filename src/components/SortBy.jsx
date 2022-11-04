@@ -1,6 +1,5 @@
 const SortBy = ({ setSort, setOrder }) => {
   const handleClick = (sortVariable, orderVariable) => {
-    console.log(sortVariable, orderVariable);
     setSort(sortVariable);
     setOrder(orderVariable);
   };
