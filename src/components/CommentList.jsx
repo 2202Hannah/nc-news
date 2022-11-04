@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { fetchComments } from "../utils";
 import CommentCard from "./CommentCard";
 
-const CommentList = ({ comments, setComments, article_id }) => {
+const CommentList = ({ comments, setComments, article_id, user}) => {
   useEffect(() => {
     fetchComments(article_id).then(data => {
       setComments(data);
@@ -20,6 +20,7 @@ const CommentList = ({ comments, setComments, article_id }) => {
           commentBody={comment.body}
           createdAt={comment.created_at}
           commentVotes={comment.votes}
+          user={user}
         />
       </div>
     );

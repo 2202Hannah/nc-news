@@ -13,17 +13,23 @@ const Login = ({ user, setUser }) => {
     event.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
-    setUsername(event.target.username.value);
-    
     fetchUsers()
       .then(data => {
         console.log(data);
-        if (data.includes(username)) {
-          setUser(username);
-          setSuccessMessage(`You are now logged in as ${username}`);
-          setUsername("");
-          setIsLoading(false);
-        }
+        data.map(user => {
+          if (user.username === username) {
+            setUser(username);
+            setSuccessMessage(`You are now logged in as ${username}`);
+            setUsername("");
+            setIsLoading(false);
+            return user;
+          } 
+          // else {
+          //   setErrorMessage("Unable to log in, please try again");
+          //   setIsLoading(false);
+          //   setUsername("");
+          // }
+        });
       })
       .catch(() => {
         setErrorMessage("Unable to log in, please try again");
@@ -37,15 +43,20 @@ const Login = ({ user, setUser }) => {
       <form onSubmit={handleSubmit}>
         <label>
           Username:
-          <input required name="username" />
+          <input
+            required
+            name="username"
+            value={username}
+            onChange={event => setUsername(event.target.value)}
+          />
         </label>
         {/* <label>
           Password:
           <input required value={password} />
         </label> */}
         <button type="submit">Login</button>
-        <p className="success">{successMessage}</p>
       </form>
+      <p className="success">{successMessage}</p>
     </div>
   );
   return (

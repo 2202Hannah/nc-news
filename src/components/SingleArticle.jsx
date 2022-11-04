@@ -8,10 +8,11 @@ import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
 import CommentPoster from "./CommentPoster";
 
-const SingleArticle = () => {
+const SingleArticle = ({ user }) => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
+  console.log(user);
 
   useEffect(() => {
     fetchArticlesById(article_id).then(data => {
@@ -29,8 +30,17 @@ const SingleArticle = () => {
         <p>{article.body}</p>
       </div>
       <h4>Comments</h4>
-      <CommentPoster setComments={setComments} article_id={article_id} />
-      <CommentList comments={comments} setComments={setComments} article_id={article_id}/>
+      <CommentPoster
+        setComments={setComments}
+        article_id={article_id}
+        user={user}
+      />
+      <CommentList
+        comments={comments}
+        setComments={setComments}
+        article_id={article_id}
+        user={user}
+      />
     </div>
   );
 };

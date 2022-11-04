@@ -10,7 +10,7 @@ import { useState } from "react";
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
   const [user, setUser] = useState("");
-  
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -34,7 +34,10 @@ function App() {
               />
             }
           />
-          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle user={user} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

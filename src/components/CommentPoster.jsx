@@ -3,7 +3,7 @@ import { postComment } from "../utils";
 import LoadingSpinner from "./LoadingSpinner";
 import "./styles.css";
 
-const CommentPoster = ({ setComments, article_id }) => {
+const CommentPoster = ({ setComments, article_id, user }) => {
   const [username, setUsername] = useState("");
   const [newCommentBody, setNewCommentBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ const CommentPoster = ({ setComments, article_id }) => {
     event.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
-    postComment(article_id, newCommentBody, username)
+    postComment(article_id, newCommentBody, user)
       .then(data => {
         setComments(currComments => {
           return [data, ...currComments];
@@ -25,7 +25,7 @@ const CommentPoster = ({ setComments, article_id }) => {
         setIsLoading(false);
       })
       .catch(() => {
-        setErrorMessage("Unable to post comment, please try again");
+        setErrorMessage("Unable to post comment, please log in and try again");
         setIsLoading(false);
         setNewCommentBody("");
         setUsername("");
@@ -35,14 +35,14 @@ const CommentPoster = ({ setComments, article_id }) => {
   const renderComments = (
     <div className="userlist-container">
     <form onSubmit={handleSubmit}>
-      <label>
+      {/* <label>
         Username:
         <input
           required
           value={username}
           onChange={event => setUsername(event.target.value)}
         />
-      </label>
+      </label> */}
       <label>
         Add a new comment:
         <input
@@ -51,7 +51,7 @@ const CommentPoster = ({ setComments, article_id }) => {
           onChange={event => setNewCommentBody(event.target.value)}
         />
       </label>
-      <button type="submit">Add Comment</button>
+      <button type="submit">Comment</button>
       <p className="success">{successMessage}</p>
     </form>
     </div>
