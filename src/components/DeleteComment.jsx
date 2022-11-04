@@ -1,28 +1,38 @@
 import { useState } from "react";
 import { deleteComment } from "../utils";
+import LoadingSpinner from "./LoadingSpinner";
+import "./styles.css";
 
-const DeleteComment = ({ comment_id, author, user }) => {
-  const [err, setErr] = useState(null);
+const DeleteComment = ({ comment_id, author, user, comments, setComments }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = () => {
     setIsLoading(true);
-    setErr(null);
+    setErrorMessage("");
 
-    if (author === user) {
-      deleteComment(comment_id)
-        .then(data => {
-          console.log(data);
-        })
-        .catch(err => {
-          setErr("Something went wrong, please try again.");
+    deleteComment(comment_id)
+      .then(() => {
+        setComments(currComments => {
+          return currComments.filter(
+            comment => comment.comment_id !== comment_id
+          );
         });
-    } else {
-      setErr(`Log in as ${user} to delete this comment`);
-    }
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErrorMessage("Unable to post comment, please log in and try again");
+        setIsLoading(false);
+      });
   };
 
-  return <button onClick={handleDelete}>Delete</button>;
+  if (user === author) {
+    return isLoading ? (
+      <LoadingSpinner />
+    ) : (
+      <button onClick={handleDelete}>Delete</button>
+    );
+  }
 };
 
 export default DeleteComment;

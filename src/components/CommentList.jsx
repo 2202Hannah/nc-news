@@ -21,6 +21,8 @@ const CommentList = ({ comments, setComments, article_id, user}) => {
           createdAt={comment.created_at}
           commentVotes={comment.votes}
           user={user}
+          comments={comments}
+          setComments={setComments}
         />
       </div>
     );

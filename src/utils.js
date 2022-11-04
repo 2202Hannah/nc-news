@@ -70,6 +70,7 @@ export const fetchUsers = () => {
 
 export const deleteComment = comment_id => {
   return myApi.delete(`/comments/${comment_id}`).then(res => {
+    console.log(res);
     return res.data;
   });
 };

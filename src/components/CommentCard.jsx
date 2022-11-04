@@ -11,6 +11,7 @@ const CommentCard = ({
   createdAt,
   commentVotes,
   setComments,
+  comments,
   user
 }) => {
   return (
@@ -19,7 +20,7 @@ const CommentCard = ({
       <Moment fromNow>{createdAt}</Moment>
       <CommentVoter comment_id={comment_id} votes={commentVotes} />
       <p>{commentBody}</p>
-      <DeleteComment comment_id={comment_id} author={author} user={user} />
+      <DeleteComment comment_id={comment_id} author={author} user={user} comments={comments} setComments={setComments}/>
     </div>
   );
 };
