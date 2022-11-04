@@ -79,3 +79,12 @@
   max-width: 1000px;
   text-align: left;
 }
+
+.voteButton {
+  max-width: 35px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  cursor: pointer;
+}

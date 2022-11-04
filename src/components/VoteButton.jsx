@@ -1,15 +1,19 @@
+import "./styles.css";
+
 const VoteButton = ({ upOrDown, onClick }) => {
   return upOrDown === "up" ? (
     <img
       className="voteButton"
-      src="./images/up-vote.png"
+      id="button1"
+      src={require("./images/up-vote.png")}
       alt="up-down"
       onClick={onClick}
     />
   ) : (
     <img
       className="voteButton"
-      src="./images/down-vote.png"
+      id="button2"
+      src={require("./images/down-vote.png")}
       alt="down-vote"
       onClick={onClick}
     />
