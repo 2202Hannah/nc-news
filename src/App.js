@@ -8,16 +8,19 @@ import Articles from "./components/Articles";
 import Topic from "./components/Topic";
 import SingleArticle from "./components/SingleArticle";
 import NotFound from "./components/NotFound";
+import UserLoginContext from "./context/UserLoginContext"
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
+  const [user, setUser] = useState("grumpy19");
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
 
   return (
+    <UserLoginContext.Provider value={{user, setUser}}>
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header/>
         <Routes>
           <Route
             path="/"
@@ -50,6 +53,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </UserLoginContext.Provider>
   );
 }
 export default App;
