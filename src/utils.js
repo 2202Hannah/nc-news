@@ -74,3 +74,15 @@ export const postComment = (article_id, body, username) => {
       return res.data.comment;
     });
 };
+
+export const fetchUsers = () => {
+  return myApi.get(`/users`).then(res => {
+    return res.data.users;
+  });
+};
+
+export const deleteComment = comment_id => {
+  return myApi.delete(`/comments/${comment_id}`).then(res => {
+    return res.data;
+  });
+};

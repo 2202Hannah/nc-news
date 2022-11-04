@@ -29,8 +29,15 @@ const SingleArticle = () => {
         <p>{article.body}</p>
       </div>
       <h4>Comments</h4>
-      <CommentPoster setComments={setComments} article_id={article_id} />
-      <CommentList comments={comments} setComments={setComments} article_id={article_id}/>
+      <CommentPoster
+        setComments={setComments}
+        article_id={article_id}
+      />
+      <CommentList
+        comments={comments}
+        setComments={setComments}
+        article_id={article_id}
+      />
     </div>
   );
 };

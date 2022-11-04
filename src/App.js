@@ -3,19 +3,22 @@ import Header from "./components/Header";
 import Articles from "./components/Articles";
 import Topic from "./components/Topic";
 import SingleArticle from "./components/SingleArticle";
+import UserLoginContext from "./context/UserLoginContext"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
+  const [user, setUser] = useState("grumpy19");
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
 
   return (
+    <UserLoginContext.Provider value={{user, setUser}}>
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header/>
         <Routes>
           <Route
             path="/"
@@ -43,10 +46,14 @@ function App() {
               />
             }
           />
-          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route
+            path="/articles/:article_id"
+            element={<SingleArticle />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
+    </UserLoginContext.Provider>
   );
 }
 export default App;
