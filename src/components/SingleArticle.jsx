@@ -7,22 +7,33 @@ import "moment-timezone";
 import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
 import CommentPoster from "./CommentPoster";
-import ErrorPage from "./ErrorPage"
+import ErrorPage from "./ErrorPage";
 
-
-const SingleArticle = ({setErrorMessage, errorMessage}) => {
+const SingleArticle = () => {
   const { article_id } = useParams();
+
+  // Component useState()
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
 
+  // Error handling useState()
+  const [isErr, setIsErr] = useState(false);
+  const [errResponse, setErrResponse] = useState({});
+
   useEffect(() => {
-    fetchArticlesById(article_id).then(data => {
-      setArticle(data);
-    }).catch((err) => {
-      setErrorMessage(err.response.data.msg);
-    })
+    fetchArticlesById(article_id)
+      .then(data => {
+        setArticle(data);
+      })
+      .catch(err => {
+        setIsErr(true);
+        setErrResponse(err.response);
+      });
   }, []);
 
+  if (isErr) {
+    return <ErrorPage errResponse={errResponse} />;
+  }
   return (
     <div>
       <div className="singleArticle">
@@ -34,7 +45,11 @@ const SingleArticle = ({setErrorMessage, errorMessage}) => {
       </div>
       <h4>Comments</h4>
       <CommentPoster setComments={setComments} article_id={article_id} />
-      <CommentList comments={comments} setComments={setComments} article_id={article_id}/>
+      <CommentList
+        comments={comments}
+        setComments={setComments}
+        article_id={article_id}
+      />
     </div>
   );
 };
