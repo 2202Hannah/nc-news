@@ -8,6 +8,7 @@ import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
 import CommentPoster from "./CommentPoster";
 import ErrorPage from "./ErrorPage";
+import LoadingSpinner from "./LoadingSpinner";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -35,7 +36,7 @@ const SingleArticle = () => {
   }, []);
 
 
-  if (isLoading) return <h1> Loading </h1>
+  if (isLoading) return <LoadingSpinner />
 
   else if (isErr) {
     return <ErrorPage errResponse={errResponse} />;
