@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { patchArticleVotes } from "../utils";
+import VoteButton from "./VoteButton";
 
 const ArticleVoter = ({ votes, article_id }) => {
   const [voteIncrement, setVotes] = useState(0);
@@ -31,8 +32,8 @@ const ArticleVoter = ({ votes, article_id }) => {
   return (
     <>
       <h4 aria-label="votes">VOTES:{votes + voteIncrement}</h4>
-      <button onClick={handleVoteIncrease}>Up Vote</button>
-      <button onClick={handleVoteDecrease}>Down Vote</button>
+      <VoteButton upOrDown="up" onClick={handleVoteIncrease} />
+      <VoteButton upOrDown="down" onClick={handleVoteDecrease} />
     </>
   );
 };
