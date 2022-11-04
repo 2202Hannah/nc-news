@@ -7,8 +7,10 @@ import "moment-timezone";
 import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
 import CommentPoster from "./CommentPoster";
+import ErrorPage from "./ErrorPage"
 
-const SingleArticle = () => {
+
+const SingleArticle = ({setErrorMessage, errorMessage}) => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
@@ -16,7 +18,9 @@ const SingleArticle = () => {
   useEffect(() => {
     fetchArticlesById(article_id).then(data => {
       setArticle(data);
-    });
+    }).catch((err) => {
+      setErrorMessage(err.response.data.msg);
+    })
   }, []);
 
   return (
