@@ -1,62 +1,33 @@
 const SortBy = ({ setSort, setOrder }) => {
-  const handleClick = (sortVariable, orderVariable) => {
-    console.log(sortVariable, orderVariable);
-    setSort(sortVariable);
-    setOrder(orderVariable);
+  const handleClick = event => {
+    setSort(JSON.parse(event.target.value).sortVariable);
+    setOrder(JSON.parse(event.target.value).orderVariable);
   };
 
   return (
-    <div>
-      <h4>sort by:</h4>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("created_at", "asc");
-        }}
-      >
-        created at (newest first)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("created_at", "desc");
-        }}
-      >
-        created at (oldest first)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("comment_count", "desc");
-        }}
-      >
-        comments (high - low)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("comment_count", "asc");
-        }}
-      >
-        comments (low - high)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("votes", "desc");
-        }}
-      >
-        votes (high to low)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleClick("votes", "asc");
-        }}
-      >
-        votes (low to high)
-      </button>
-    </div>
+    <form>
+      <label>sort by:</label>
+      <select className="sortBy" onChange={event => handleClick(event)}>
+        <option value='{ "sortVariable": "created_at", "orderVariable": "asc" }'>
+          Created at (newest first)
+        </option>
+        <option value='{ "sortVariable": "created_at", "orderVariable": "desc" }'>
+          Created at (oldest first)
+        </option>
+        <option value='{"sortVariable":"comment_count", "orderVariable": "desc"}'>
+          Comments (high - low)
+        </option>
+        <option value='{"sortVariable":"comment_count", "orderVariable": "asc"}'>
+          Comments (low - high)
+        </option>
+        <option value='{"sortVariable":"votes", "orderVariable": "desc"}'>
+          Votes (high - low)
+        </option>
+        <option value='{"sortVariable":"votes", "orderVariable": "asc"}'>
+          Votes (low - high)
+        </option>
+      </select>
+    </form>
   );
 };
 
