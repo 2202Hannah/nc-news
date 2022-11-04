@@ -15,7 +15,6 @@ const Login = ({ user, setUser }) => {
     setIsLoading(true);
     fetchUsers()
       .then(data => {
-        console.log(data);
         data.map(user => {
           if (user.username === username) {
             setUser(username);
@@ -24,11 +23,6 @@ const Login = ({ user, setUser }) => {
             setIsLoading(false);
             return user;
           } 
-          // else {
-          //   setErrorMessage("Unable to log in, please try again");
-          //   setIsLoading(false);
-          //   setUsername("");
-          // }
         });
       })
       .catch(() => {
@@ -50,10 +44,6 @@ const Login = ({ user, setUser }) => {
             onChange={event => setUsername(event.target.value)}
           />
         </label>
-        {/* <label>
-          Password:
-          <input required value={password} />
-        </label> */}
         <button type="submit">Login</button>
       </form>
       <p className="success">{successMessage}</p>

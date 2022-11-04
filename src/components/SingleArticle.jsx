@@ -12,7 +12,6 @@ const SingleArticle = ({ user }) => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
-  console.log(user);
 
   useEffect(() => {
     fetchArticlesById(article_id).then(data => {

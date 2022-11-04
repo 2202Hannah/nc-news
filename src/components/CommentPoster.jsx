@@ -35,14 +35,6 @@ const CommentPoster = ({ setComments, article_id, user }) => {
   const renderComments = (
     <div className="userlist-container">
     <form onSubmit={handleSubmit}>
-      {/* <label>
-        Username:
-        <input
-          required
-          value={username}
-          onChange={event => setUsername(event.target.value)}
-        />
-      </label> */}
       <label>
         Add a new comment:
         <input
