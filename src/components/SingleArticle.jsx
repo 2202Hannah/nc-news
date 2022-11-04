@@ -19,19 +19,25 @@ const SingleArticle = () => {
   // Error handling useState()
   const [isErr, setIsErr] = useState(false);
   const [errResponse, setErrResponse] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchArticlesById(article_id)
       .then(data => {
         setArticle(data);
+        setIsLoading(false);
       })
       .catch(err => {
         setIsErr(true);
         setErrResponse(err.response);
+        setIsLoading(false);
       });
   }, []);
 
-  if (isErr) {
+
+  if (isLoading) return <h1> Loading </h1>
+
+  else if (isErr) {
     return <ErrorPage errResponse={errResponse} />;
   }
   return (
