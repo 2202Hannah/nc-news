@@ -10,13 +10,13 @@ import { useState } from "react";
 
 function App() {
   const [currentArticles, setCurrentArticles] = useState([]);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("grumpy19");
 
   return (
-    <UserLoginContext.Provider value="grumpy19">
+    <UserLoginContext.Provider value={{user, setUser}}>
     <BrowserRouter>
       <div className="App">
-        <Header user={user} setUser={setUser} />
+        <Header/>
         <Routes>
           <Route
             path="/"
@@ -38,7 +38,7 @@ function App() {
           />
           <Route
             path="/articles/:article_id"
-            element={<SingleArticle user={user} />}
+            element={<SingleArticle />}
           />
         </Routes>
       </div>

@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../utils";
 import LoadingSpinner from "./LoadingSpinner";
 import "./styles.css";
 
-const CommentPoster = ({ setComments, article_id, user }) => {
+import UserLoginContext from "../context/UserLoginContext"
+
+const CommentPoster = ({ setComments, article_id }) => {
+  const {user, setUser } = useContext(UserLoginContext);
+  
   const [username, setUsername] = useState("");
   const [newCommentBody, setNewCommentBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);

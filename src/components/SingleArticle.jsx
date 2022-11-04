@@ -8,7 +8,7 @@ import CommentList from "./CommentList";
 import ArticleVoter from "./ArticleVoter";
 import CommentPoster from "./CommentPoster";
 
-const SingleArticle = ({ user }) => {
+const SingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [comments, setComments] = useState([]);
@@ -32,13 +32,11 @@ const SingleArticle = ({ user }) => {
       <CommentPoster
         setComments={setComments}
         article_id={article_id}
-        user={user}
       />
       <CommentList
         comments={comments}
         setComments={setComments}
         article_id={article_id}
-        user={user}
       />
     </div>
   );

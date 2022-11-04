@@ -1,9 +1,14 @@
-import { useState } from "react";
-import { deleteComment } from "../utils";
-import LoadingSpinner from "./LoadingSpinner";
 import "./styles.css";
 
-const DeleteComment = ({ comment_id, author, user, comments, setComments }) => {
+import { useState, useContext } from "react";
+import { deleteComment } from "../utils";
+
+import LoadingSpinner from "./LoadingSpinner";
+import UserLoginContext from "../context/UserLoginContext";
+
+const DeleteComment = ({ comment_id, author, comments, setComments }) => {
+  const { user, setUser } = useContext(UserLoginContext);
+
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 

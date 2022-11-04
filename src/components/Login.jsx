@@ -1,13 +1,13 @@
+import "./styles.css";
 
 import { useState, useContext } from "react";
 import { fetchUsers } from "../utils";
-import LoadingSpinner from "./LoadingSpinner";
-import "./styles.css";
 
+import LoadingSpinner from "./LoadingSpinner";
 import UserLoginContext from "../context/UserLoginContext"
 
-const Login = ({ user, setUser }) => {
-  const value = useContext(UserLoginContext);
+const Login = () => {
+  const {user, setUser } = useContext(UserLoginContext);
   
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
