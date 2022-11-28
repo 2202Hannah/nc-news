@@ -65,14 +65,24 @@ export const patchArticleVotes = (article_id, number) => {
 };
 
 export const postComment = (article_id, body, username) => {
-  console.log(article_id, username, body);
   return myApi
     .post(`/articles/${article_id}/comments`, {
       username: username,
       body: body
     })
     .then(res => {
-      console.log(res.data.comment);
       return res.data.comment;
     });
+};
+
+export const fetchUsers = () => {
+  return myApi.get(`/users`).then(res => {
+    return res.data.users;
+  });
+};
+
+export const deleteComment = comment_id => {
+  return myApi.delete(`/comments/${comment_id}`).then(res => {
+    return res.data;
+  });
 };

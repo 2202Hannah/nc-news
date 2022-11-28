@@ -1,43 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../utils";
+import LoadingSpinner from "./LoadingSpinner";
+import "./styles.css";
+
+import UserLoginContext from "../context/UserLoginContext"
 
 const CommentPoster = ({ setComments, article_id }) => {
-  const [newComment, setNewComment] = useState("");
+  const {user, setUser } = useContext(UserLoginContext);
+  
   const [username, setUsername] = useState("");
   const [newCommentBody, setNewCommentBody] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
-    postComment(article_id, newCommentBody, username).then(data => {
-      console.log(data);
-    });
-    setComments(currComments => {
-      return [newComment, ...currComments];
-    });
-    setNewCommentBody("");
-    setUsername("");
+    setErrorMessage("");
+    setIsLoading(true);
+    postComment(article_id, newCommentBody, user)
+      .then(data => {
+        setComments(currComments => {
+          return [data, ...currComments];
+        });
+        setSuccessMessage("Your message has been posted!");
+        setNewCommentBody("");
+        setUsername("");
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErrorMessage("Unable to post comment, please log in and try again");
+        setIsLoading(false);
+        setNewCommentBody("");
+        setUsername("");
+      });
   };
 
-  // useEffect(() => {
-
-  //   postComment(article_id, newCommentBody, username).then(
-  //     (data) => {
-  //       console.log(data);
-  //       //setNewComment({ author, body, comment_id, created_at, votes });
-  //     }
-  //   );
-  // }, []);
-
-  return (
+  const renderComments = (
+    <div className="userlist-container">
     <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          required
-          value={username}
-          onChange={event => setUsername(event.target.value)}
-        />
-      </label>
       <label>
         Add a new comment:
         <input
@@ -46,8 +47,16 @@ const CommentPoster = ({ setComments, article_id }) => {
           onChange={event => setNewCommentBody(event.target.value)}
         />
       </label>
-      <button type="submit">Add Comment</button>
+      <button type="submit">Comment</button>
+      <p className="success">{successMessage}</p>
     </form>
+    </div>
+  );
+  return (
+    <div className="commentPoster">
+      {isLoading ? <LoadingSpinner /> : renderComments}
+      {errorMessage && <div className="error">{errorMessage}</div>}
+    </div>
   );
 };
 
