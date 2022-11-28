@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Northcoders News Frontend Project
+
+Link to hosted version:
+
+Link to associated backend repository: https://github.com/2202Hannah/be-nc-news-hb
+
+## Table of Contents
+
+1. Summary of the project
+2. How to use the project
+
+## A Summary of the Project
+
+This project creates a frontend user interface for a news website called Northcoders News. I completed this solo project as part of the software development training bootcamp at Northcoders.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+I used ReactJS to build the frontend of my project. I used axios to make requests to the backend of my project.
 
-In the project directory, you can run:
+I am hosting the app on Netlify here:
 
-### `npm start`
+## How to setup and use the project:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### To FORK and CLONE the repository:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash dark
+git clone https://github.com/2202Hannah/nc-news
+```
 
-### `npm test`
+### To run locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash dark
+npm start
+```
 
-### `npm run build`
+### Dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+node version 18.7.0 minimum
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To check you have node installed run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash dark
+node --version
+```
 
-### `npm run eject`
+To install node:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [node.js](https://nodejs.org/en/download/package-manager/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## npm Packages
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+A number of npm packages have been installed to help build this React app. These include:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [React](https://reactjs.org)
+- [axios](https://www.npmjs.com/package/axios)
 
-## Learn More
+## Home
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The home page displays all the articles that have been posted on the app, as well as a Northcoders News header. Clicking on the title of the article will take you to the individual articles page. The individual articles page displays the articles body. It also allows the user to vote up or down on the article, comment on it and to vote on the comments.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Topics
 
-### Code Splitting
+The topics page displays the topics associated with Northcoders News. Clicking on the topics will display the articles sorted by the topic they are connected to.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Errors
 
-### Analyzing the Bundle Size
+Bad routes result in an errors page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+API errors result in the API error status code and message being displayed to the user.
 
-### Making a Progressive Web App
+## Hosting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This site is being hosted by Netlify.
