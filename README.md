@@ -1,6 +1,6 @@
 # Northcoders News Frontend Project
 
-Link to hosted version: https://beamish-hotteok-5f935f.netlify.app/
+Link to hosted version: https://nc-news-hb.netlify.app/
 
 Link to associated backend repository: https://github.com/2202Hannah/be-nc-news-hb
 
@@ -17,7 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 I used ReactJS to build the frontend of my project. I used axios to make requests to the backend of my project.
 
-I am hosting the app on Netlify here: https://beamish-hotteok-5f935f.netlify.app/
+I am hosting the app on Netlify here: https://nc-news-hb.netlify.app/
 
 ## How to setup and use the project:
 
