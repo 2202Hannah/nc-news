@@ -34,7 +34,7 @@ const Topic = ({
         setErrResponse(err.response);
         setIsLoading(false);
       });
-  }, [topic, sort, order]);
+  }, [topic, sort, order, setCurrentArticles]);
 
   if (isLoading) return <LoadingSpinner />;
   else if (isErr) {

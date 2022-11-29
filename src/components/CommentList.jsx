@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useEffect } from "react";
 import { fetchComments } from "../utils";
 import CommentCard from "./CommentCard";
 
 const CommentList = ({ comments, setComments, article_id}) => {
+  
   useEffect(() => {
     fetchComments(article_id).then(data => {
       setComments(data);
     });
-  }, []);
+  }, [article_id, setComments]);
 
   return comments.map(comment => {
     

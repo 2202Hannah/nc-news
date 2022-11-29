@@ -33,7 +33,7 @@ const SingleArticle = () => {
         setErrResponse(err.response);
         setIsLoading(false);
       });
-  }, []);
+  }, [article_id]);
 
 
   if (isLoading) return <LoadingSpinner />

@@ -7,7 +7,7 @@ import LoadingSpinner from "./LoadingSpinner";
 import UserLoginContext from "../context/UserLoginContext"
 
 const Login = () => {
-  const {user, setUser } = useContext(UserLoginContext);
+  const { setUser } = useContext(UserLoginContext);
   
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);

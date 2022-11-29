@@ -16,7 +16,7 @@ const Articles = ({
     fetchArticles(sort, order).then(articleData => {
       setCurrentArticles(articleData);
     });
-  }, [sort, order]);
+  }, [sort, order, setCurrentArticles]);
   
 
   return (

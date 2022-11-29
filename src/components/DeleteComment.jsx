@@ -7,9 +7,9 @@ import LoadingSpinner from "./LoadingSpinner";
 import UserLoginContext from "../context/UserLoginContext";
 
 const DeleteComment = ({ comment_id, author, comments, setComments }) => {
-  const { user, setUser } = useContext(UserLoginContext);
+  const { user } = useContext(UserLoginContext);
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = () => {
