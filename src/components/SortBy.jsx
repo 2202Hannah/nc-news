@@ -5,8 +5,8 @@ const SortBy = ({ setSort, setOrder }) => {
   };
 
   return (
-    <form>
-      <label>sort by:</label>
+    <form className="sortBy">
+      <label>sort by:  </label>
       <select className="sortBy" onChange={event => handleClick(event)}>
         <option value='{ "sortVariable": "created_at", "orderVariable": "asc" }'>
           Created at (newest first)

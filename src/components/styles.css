@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #f5d9d7;
+  background-color: rgba(179, 179, 179, 0.431);
 }
 
 .header {
@@ -31,7 +31,7 @@
   border: 2px solid #222;
   box-shadow: 2px 5px 5px #aaaaaa;
   border-radius: 5px;
-  max-width: 800px;
+  max-width: 400px;
   cursor: pointer;
 }
 
@@ -87,4 +87,8 @@
   margin-right: auto;
   width: 50%;
   cursor: pointer;
+}
+
+.sortBy {
+  padding: 5px;
 }

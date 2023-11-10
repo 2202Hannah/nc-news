@@ -48,6 +48,7 @@ const SingleArticle = () => {
         <ArticleVoter article_id={article_id} votes={article.votes} />
         <h4>Posted by: {article.author}</h4>
         <Moment format="DD/MM/YYYY">{article.createdAt}</Moment>
+        <img src={article.article_img_url} alt={article.title}/>
         <p>{article.body}</p>
       </div>
       <h4>Comments</h4>

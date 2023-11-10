@@ -16,6 +16,7 @@ const ArticleList = ({ currentArticles, setSort, setOrder }) => {
               commentCount={article.comment_count}
               votes={article.votes}
               article_id={article.article_id}
+              article_img_url={article.article_img_url}
             />
           </div>
         );
