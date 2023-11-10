@@ -3,6 +3,7 @@ import SortBy from "./SortBy";
 import "./styles.css";
 
 const ArticleList = ({ currentArticles, setSort, setOrder }) => {
+ 
   return (
     <div>
       <SortBy setSort={setSort} setOrder={setOrder} />

@@ -8,7 +8,7 @@ import UserLoginContext from "../context/UserLoginContext"
 const CommentPoster = ({ setComments, article_id }) => {
   const {user} = useContext(UserLoginContext);
   
-  const [setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [newCommentBody, setNewCommentBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

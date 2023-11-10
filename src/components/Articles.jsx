@@ -14,11 +14,10 @@ const Articles = ({
 }) => {
   useEffect(() => {
     fetchArticles(sort, order).then(articleData => {
-      setCurrentArticles(articleData);
+      return setCurrentArticles(articleData);
     });
   }, [sort, order, setCurrentArticles]);
   
-
   return (
     <div className="gridContainer">
       <ArticleList

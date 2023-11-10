@@ -9,7 +9,7 @@ import UserLoginContext from "../context/UserLoginContext";
 const DeleteComment = ({ comment_id, author, comments, setComments }) => {
   const { user } = useContext(UserLoginContext);
 
-  const [setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = () => {
