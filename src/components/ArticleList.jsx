@@ -1,15 +1,12 @@
 import ArticleCard from "./ArticleCard";
-import SortBy from "./SortBy";
 import "./styles.css";
 
-const ArticleList = ({ currentArticles, setSort, setOrder }) => {
- 
+const ArticleList = ({ currentArticles }) => {
   return (
-    <div>
-      <SortBy setSort={setSort} setOrder={setOrder} />
-      {currentArticles.map(article => {
+    <div className="grid">
+      {currentArticles.map((article) => {
         return (
-          <div key={article.article_id} className="gridItem">
+          <div key={article.article_id} className="cell">
             <ArticleCard
               title={article.title}
               articleBody={article.body}

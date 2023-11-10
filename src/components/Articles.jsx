@@ -4,29 +4,14 @@ import { fetchArticles } from "../utils";
 
 import "./styles.css";
 
-const Articles = ({
-  currentArticles,
-  setCurrentArticles,
-  sort,
-  setSort,
-  order,
-  setOrder
-}) => {
+const Articles = ({ currentArticles, setCurrentArticles, sort, order }) => {
   useEffect(() => {
-    fetchArticles(sort, order).then(articleData => {
+    fetchArticles(sort, order).then((articleData) => {
       return setCurrentArticles(articleData);
     });
   }, [sort, order, setCurrentArticles]);
-  
-  return (
-    <div className="gridContainer">
-      <ArticleList
-        currentArticles={currentArticles}
-        setSort={setSort}
-        setOrder={setOrder}
-      />
-    </div>
-  );
+
+  return <ArticleList currentArticles={currentArticles} />;
 };
 
 export default Articles;

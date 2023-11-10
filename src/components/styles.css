@@ -1,6 +1,5 @@
 .App {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
   padding: 10px;
   background-color: rgba(179, 179, 179, 0.431);
 }
@@ -20,6 +19,16 @@
   font-size: 48px;
   font-weight: 200;
   margin-bottom: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cell {
+  flex: 1;
 }
 
 .articleCard {
