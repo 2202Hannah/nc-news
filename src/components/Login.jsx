@@ -40,8 +40,8 @@ const Login = () => {
 
   const renderLogin = (
     <div className="loginBar">
-      {/* <h1 id="nav-title">STAPLETON NEWS</h1> */}
-      <Logo id="nav-title" />
+      <h1 id="nav-title">STAPLETON NEWS</h1>
+   
       <form id="login" onSubmit={handleSubmit}>
         <label>
           Username:

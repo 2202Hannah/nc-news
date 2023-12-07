@@ -119,11 +119,15 @@
   padding: 20px 50px;
   box-shadow: 0 1px 8px #ddd;
   background-color: #faf9f6;
+  width: 100vw;
 }
 
 #nav-title {
   margin-right: auto;
   font-size: 1.5em;
+  padding-left: 20px;
+  font-size: 30px;
+  font-weight: 250;
 }
 
 #login {
