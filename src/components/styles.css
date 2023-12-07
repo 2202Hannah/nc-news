@@ -145,8 +145,8 @@
 }
 
 .menu {
-  position: absolute;
 
+  position: absolute;
   list-style-type: none;
   margin: 5px 0;
   padding: 0;
@@ -177,4 +177,9 @@
   margin: 0;
   font: inherit;
   cursor: pointer;
+}
+
+.menu_img {
+  max-width: 5%;
+  max-height: auto;
 }
