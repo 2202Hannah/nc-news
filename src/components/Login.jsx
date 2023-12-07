@@ -3,6 +3,7 @@ import "./styles.css";
 import { useState, useContext } from "react";
 import { fetchUsers } from "../utils";
 
+import Logo from "./Logo"
 import LoadingSpinner from "./LoadingSpinner";
 import UserLoginContext from "../context/UserLoginContext"
 
@@ -38,8 +39,10 @@ const Login = () => {
   };
 
   const renderLogin = (
-    <div className="loginForm">
-      <form onSubmit={handleSubmit}>
+    <div className="loginBar">
+      {/* <h1 id="nav-title">STAPLETON NEWS</h1> */}
+      <Logo id="nav-title" />
+      <form id="login" onSubmit={handleSubmit}>
         <label>
           Username:
           <input

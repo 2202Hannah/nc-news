@@ -1,7 +1,9 @@
 .App {
   flex: 1;
-  padding: 10px;
-  background-color: rgba(179, 179, 179, 0.431);
+  /* padding: 10px; */
+  background-color: #a7cdbd;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -14,11 +16,19 @@
   text-decoration: none;
 }
 
-.title {
-  color: black;
+/* .title {
+  color: white;
+  background-color: #A63A50;
+  padding: 10px;
+  border-radius: 5px;
   font-size: 48px;
   font-weight: 200;
   margin-bottom: 0;
+} */
+
+.logo {
+  max-width: 60%;
+  height: auto;
 }
 
 .grid {
@@ -35,10 +45,10 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-color: #faf9f6;
+  background-color: #f6f6f6;
   padding: 10px;
-  border: 2px solid #222;
-  box-shadow: 2px 5px 5px #aaaaaa;
+  border: 2px solid #011627;
+  box-shadow: 2px 5px 5px #f6f6f6;
   border-radius: 5px;
   max-width: 400px;
   cursor: pointer;
@@ -100,4 +110,24 @@
 
 .sortBy {
   padding: 5px;
+}
+
+.loginBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 0 1px 8px #ddd;
+  background-color: #faf9f6;
+}
+
+#nav-title {
+  margin-right: auto;
+  font-size: 1.5em;
+}
+
+#login {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
 }
