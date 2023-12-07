@@ -4,17 +4,19 @@ const myApi = axios.create({
   baseURL: `https://nc-news-4amo.onrender.com/api`,
 });
 
-export const fetchArticles = (sort, order) => {
+export const fetchArticles = (sort, order, currentPage) => {
   if (order && sort) {
     return myApi
-      .get(`/articles?sort_by=${sort}&&order=${order}&&limit=12`)
+      .get(
+        `/articles?sort_by=${sort}&&order=${order}&&limit=12&&p=${currentPage -1}`
+      )
       .then((res) => {
         return res.data.articles;
       })
       .catch((err) => console.log(err));
   } else {
     return myApi
-      .get(`/articles?limit=12`)
+      .get(`/articles?limit=12&&p=${currentPage -1}`)
       .then((res) => {
         return res.data.articles;
       })
