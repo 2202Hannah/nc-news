@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import Login from "./Login";
-import Topics from "./Topics";
 import Logo from "./Logo";
 
 const Header = ({ user, setUser }) => {
@@ -12,7 +11,6 @@ const Header = ({ user, setUser }) => {
         {/* <h1 className="title">STAPLETON STREET NEWS</h1> */}
         <Logo />
       </Link>
-      <Topics />
     </div>
   );
 };

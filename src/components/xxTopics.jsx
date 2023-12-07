@@ -15,9 +15,9 @@ const Topics = () => {
 
   return (
     <div className="topics">
-      {topics.map((topic, index) => {
+      {topics.map((topic) => {
         return (
-          <Link key={index} to={`/topics/${topic}`} topic={topic}>
+          <Link key={topic.id} to={`/topics/${topic}`} topic={topic}>
             <p className="topicList">{topic}</p>
           </Link>
         );
