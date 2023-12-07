@@ -7,14 +7,14 @@ const myApi = axios.create({
 export const fetchArticles = (sort, order) => {
   if (order && sort) {
     return myApi
-      .get(`/articles?sort_by=${sort}&&order=${order}`)
+      .get(`/articles?sort_by=${sort}&&order=${order}&&limit=12`)
       .then((res) => {
         return res.data.articles;
       })
       .catch((err) => console.log(err));
   } else {
     return myApi
-      .get(`/articles`)
+      .get(`/articles?limit=12`)
       .then((res) => {
         return res.data.articles;
       })
