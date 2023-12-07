@@ -20,7 +20,7 @@ function App() {
     <UserLoginContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <div className="App">
-          <Header setSort={setSort} setOrder={setOrder} />
+          <Header />
           <Routes>
             <Route
               path="/"
@@ -30,6 +30,8 @@ function App() {
                   setCurrentArticles={setCurrentArticles}
                   sort={sort}
                   order={order}
+                  setSort={setSort}
+                  setOrder={setOrder}
                 />
               }
             />
