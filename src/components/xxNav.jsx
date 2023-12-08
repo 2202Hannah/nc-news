@@ -47,7 +47,7 @@ const Nav = () => {
 
   const renderNav = (
     <div className="loginBar">
-      <h1 id="nav-title">STAPLETON NEWS</h1>
+      {/* <h1 id="nav-title">STAPLETON NEWS</h1> */}
       {/* <button>signup</button> */}
       <button onClick={handleClick}>login</button>
       {/* <Logo id="nav-title" /> */}

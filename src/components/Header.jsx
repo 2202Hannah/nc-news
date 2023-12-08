@@ -9,7 +9,7 @@ const Header = ({ user, setUser }) => {
       <Login user={user} setUser={setUser} />
       <Link to="/">
         {/* <h1 className="title">STAPLETON STREET NEWS</h1> */}
-        <Logo />
+        {/* <Logo /> */}
       </Link>
     </div>
   );

@@ -19,12 +19,13 @@ const Menu = () => {
 
   return (
     <div className="dropdown">
-        <img
+        {/* <img
           className="menu_img"
           src={require("./images/menu.jpg")}
           alt="hamburger menu icon"
           onClick={handleOpen}
-        />
+        /> */}
+        <button onClick={handleOpen}>Menu</button>
       {open ? (
         <ul className="menu">
           {topics.map((topic, index) => {
