@@ -1,34 +1,29 @@
 import "./styles.css";
 
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { fetchUsers } from "../utils";
 
-import Logo from "./Logo"
+import Logo from "./Logo";
 import LoadingSpinner from "./LoadingSpinner";
-import UserLoginContext from "../context/UserLoginContext"
-import LoginPage from "./LoginPage"
+import UserLoginContext from "../context/UserLoginContext";
+import Menu from "./Menu";
 
-const Nav = () => {
+const NavBar = () => {
   const { setUser } = useContext(UserLoginContext);
-  
+
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const [clicked, setClicked] = useState(false)
-
-
-  const handleClick = () => {
-    setClicked(true)
-  }
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
     fetchUsers()
-      .then(data => {
-        data.map(user => {
+      .then((data) => {
+        data.map((user) => {
           if (user.username === username) {
             setUser(username);
             setSuccessMessage(`You are now logged in as ${username}`);
@@ -45,35 +40,35 @@ const Nav = () => {
       });
   };
 
-  const renderNav = (
+  const renderLogin = (
     <div className="loginBar">
       {/* <h1 id="nav-title">STAPLETON NEWS</h1> */}
-      {/* <button>signup</button> */}
-      <button onClick={handleClick}>login</button>
-      {/* <Logo id="nav-title" /> */}
-      {/* <form id="login" onSubmit={handleSubmit}>
+      <Link to="/">
+        <Logo id="nav-title" />
+      </Link>
+      <Menu id="nav-menu" />
+
+      <form id="login" onSubmit={handleSubmit}>
         <label>
           Username:
           <input
             required
             name="username"
             value={username}
-            onChange={event => setUsername(event.target.value)}
+            onChange={(event) => setUsername(event.target.value)}
           />
         </label>
         <button type="submit">Login</button>
       </form>
-  // <p className="success">{successMessage}</p>*/}
-  </div>
+      <p className="success">{successMessage}</p>
+    </div>
   );
-
-  return clicked === true ?  <LoginPage /> :
-  (
+  return (
     <div className="loginPoster">
-      {isLoading ? <LoadingSpinner /> : renderNav}
+      {isLoading ? <LoadingSpinner /> : renderLogin}
       {errorMessage && <div className="error">{errorMessage}</div>}
     </div>
   );
 };
 
-export default Nav;
+export default NavBar;
