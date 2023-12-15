@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
-
 import NavBar from "./NavBar";
-import Logo from "./Logo";
 
 const Header = ({ user, setUser }) => {
   return (

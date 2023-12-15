@@ -26,7 +26,7 @@ const DeleteComment = ({ comment_id, author, comments, setComments }) => {
         setIsLoading(false);
       })
       .catch(() => {
-        setErrorMessage("Unable to post comment, please log in and try again");
+        setErrorMessage("Unable to delete comment, please log in and try again");
         setIsLoading(false);
       });
   };
