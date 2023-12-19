@@ -7,7 +7,7 @@ import { fetchUsers } from "../utils";
 import Logo from "./Logo";
 import LoadingSpinner from "./LoadingSpinner";
 import UserLoginContext from "../context/UserLoginContext";
-import Menu from "./Menu";
+import DropdownMenu from "./Menu";
 
 const NavBar = () => {
   const { setUser } = useContext(UserLoginContext);
@@ -40,32 +40,37 @@ const NavBar = () => {
       });
   };
 
-  const renderLogin = (
-    <div className="loginBar">
+  const renderNav = (
+    <div className="navBarContainer">
       {/* <h1 id="nav-title">STAPLETON NEWS</h1> */}
-      <Link to="/">
-        <Logo id="nav-title" />
-      </Link>
-      <Menu id="nav-menu" />
-
-      <form id="login" onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            required
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      <p className="success">{successMessage}</p>
+      <div className="logoItem">
+        <Link to="/">
+          <Logo id="nav-title" />
+        </Link>
+      </div>
+      <div className="menuItem">
+        <DropdownMenu id="nav-menu" />
+      </div>
+      <div className="formItem">
+        <form id="login" onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              required
+              name="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+          <button type="submit">Login</button>
+        </form>
+        <p className="success">{successMessage}</p>
+      </div>
     </div>
   );
   return (
     <div className="loginPoster">
-      {isLoading ? <LoadingSpinner /> : renderLogin}
+      {isLoading ? <LoadingSpinner /> : renderNav}
       {errorMessage && <div className="error">{errorMessage}</div>}
     </div>
   );
